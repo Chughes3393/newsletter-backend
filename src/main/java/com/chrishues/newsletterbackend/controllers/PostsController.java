@@ -65,6 +65,8 @@ public class PostsController {
 		
 
 		foundPosts.setTitle(newPostInfo.getTitle());
+		foundPosts.setSubtitle(newPostInfo.getSubtitle());
+		foundPosts.setContent(newPostInfo.getContent());
 
 		
 		Posts updatedPost = postsRepo.save(foundPosts);
