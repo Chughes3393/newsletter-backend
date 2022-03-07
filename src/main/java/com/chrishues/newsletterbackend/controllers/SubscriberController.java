@@ -45,14 +45,17 @@ public class SubscriberController {
 		return subscriberRepo.save(subscriber);
 	}
 	
+	
+	
 	@PutMapping("subscriber/{id}")
 	public ResponseEntity<Subscriber> updateSubscriber(@PathVariable int id, @RequestBody Subscriber newSubscriberInfo) {
 		Subscriber foundSubscriber = subscriberRepo.findById(id)
 				.orElseThrow(() -> new ResourceNotFoundException("Student not found."));
 		
-//		Update info of found student using setters with the new info from req.body using getters.
+//		Update info of found subscriber using setters with the new info from req.body using getters.
 		foundSubscriber.setFirstname(newSubscriberInfo.getFirstname());
 		foundSubscriber.setLastname(newSubscriberInfo.getLastname());
+		foundSubscriber.setEmail(newSubscriberInfo.getEmail());
 		
 		Subscriber updatedSubscriber = subscriberRepo.save(foundSubscriber);
 		
